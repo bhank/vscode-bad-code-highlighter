@@ -48,7 +48,19 @@
                             }
                         }
                     },
-                    "default": [],
+                    "default": [
+                        {
+                            "filename": "README\\.[a-z]+$",
+                            "text": "README",
+                            "color": "green",
+                            "tooltip": "Read me!"
+                        },
+                        {
+                            "text": "All work and no play makes [A-Za-z]+ a dull [a-z]+\\.",
+                            "color": "red",
+                            "tooltip": "REDRUM"
+                        }
+                    ],
                     "description": "Items to highlight."
                 },
                 "badCodeHighlighter.updateTimeout": {
