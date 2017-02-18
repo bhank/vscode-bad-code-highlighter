@@ -78,7 +78,7 @@ export function activate(context: vscode.ExtensionContext) {
 		let activeDecorationsByColor: { [color: string]: vscode.DecorationOptions[] } = {};
 
 		for(let highlight of activeHighlights) {
-			if(activeEditor.document.fileName.match(highlight.filename)) {
+			if(!highlight.filename || activeEditor.document.fileName.match(highlight.filename)) {
 				let regEx = new RegExp(highlight.text, 'g');
 				let match;
 				while (match = regEx.exec(text)) {
