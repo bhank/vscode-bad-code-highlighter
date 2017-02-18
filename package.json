@@ -1,7 +1,7 @@
 {
     "name": "vscode-bad-code-highlighter",
     "displayName": "Bad Code Highlighter",
-    "description": "Highlights text based on file type and content.",
+    "description": "Adds colored highlights to text matching regular expressions.",
     "version": "0.1.2",
     "publisher": "bhank",
     "license": "MIT",
