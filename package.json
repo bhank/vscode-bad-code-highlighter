@@ -1,72 +1,72 @@
 {
-	"name": "vscode-bad-code-highlighter",
-	"displayName": "Bad Code Highlighter",
-	"description": "Highlights text based on file type and content.",
-	"version": "0.0.1",
-	"publisher": "bhank",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/bhank/vscode-bad-code-highlighter"
-	},
-	"engines": {
-		"vscode": "0.10.x"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"*"
-	],
-	"main": "./out/extension",
-	"contributes": {
-		"configuration": {
-			"type": "object",
-			"title": "Bad Code Highlighter",
-			"properties": {
-				"badCodeHighlighter.highlights" : {
-					"type": "array",
-					"items": {
-						"type": "object",
-						"description": "An item to highlight.",
-						"properties": {
-							"filename": {
-								"type": "string",
-								"description": "Regular expression to match filename."
-							},
-							"text": {
-								"type": "string",
-								"description": "Regular expression to match text to highlight."
-							},
-							"color": {
-								"type": "string",
-								"description": "Color for highlighted text."
-							},
-							"tooltip": {
-								"type": "string",
-								"description": "Tooltip for highlighted text."
-							}
-						}
-					},
-					"default": [],
-					"description": "Items to highlight."
-				},
-				"badCodeHighlighter.updateTimeout" : {
-					"type": "integer",
-					"description": "Milliseconds to wait before updating highlights.",
-					"default": 500
-				}
-			}
-		}
-	},
-	"scripts": {
-		"vscode:prepublish": "tsc -p ./",
-		"compile": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install"
-	},
-	"devDependencies": {
-		"vscode": "^1.0.0",
-		"typescript": "^2.1.4",
-		"@types/node": "*"
-	}
+    "name": "vscode-bad-code-highlighter",
+    "displayName": "Bad Code Highlighter",
+    "description": "Highlights text based on file type and content.",
+    "version": "0.1.0",
+    "publisher": "bhank",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bhank/vscode-bad-code-highlighter"
+    },
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Bad Code Highlighter",
+            "properties": {
+                "badCodeHighlighter.highlights": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "description": "An item to highlight.",
+                        "properties": {
+                            "filename": {
+                                "type": "string",
+                                "description": "Regular expression to match filename."
+                            },
+                            "text": {
+                                "type": "string",
+                                "description": "Regular expression to match text to highlight."
+                            },
+                            "color": {
+                                "type": "string",
+                                "description": "Color for highlighted text."
+                            },
+                            "tooltip": {
+                                "type": "string",
+                                "description": "Tooltip for highlighted text."
+                            }
+                        }
+                    },
+                    "default": [],
+                    "description": "Items to highlight."
+                },
+                "badCodeHighlighter.updateTimeout": {
+                    "type": "integer",
+                    "description": "Milliseconds to wait before updating highlights.",
+                    "default": 500
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "vscode": "^1.0.0",
+        "typescript": "^2.1.4",
+        "@types/node": "*"
+    }
 }
