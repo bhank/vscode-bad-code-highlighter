@@ -5,26 +5,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 	console.log('decorator sample is activated');
 
-	// create a decorator type that we use to decorate small numbers
-	const smallNumberDecorationType = vscode.window.createTextEditorDecorationType({
-		borderWidth: '1px',
-		borderStyle: 'solid',
-		overviewRulerColor: 'blue',
-		overviewRulerLane: vscode.OverviewRulerLane.Right,
-		light: {
-			// this color will be used in light color themes
-			borderColor: 'darkblue'
-		},
-		dark: {
-			// this color will be used in dark color themes
-			borderColor: 'lightblue'
-		}
-	});
-
-	// create a decorator type that we use to decorate large numbers
-	const largeNumberDecorationType = vscode.window.createTextEditorDecorationType({
-		cursor: 'crosshair',
-		backgroundColor: 'rgba(255,0,0,0.3)'
+	const badStuffDecorationType = vscode.window.createTextEditorDecorationType({
+		backgroundColor: 'red',
 	});
 
 	let activeEditor = vscode.window.activeTextEditor;
@@ -57,23 +39,28 @@ export function activate(context: vscode.ExtensionContext) {
 		if (!activeEditor) {
 			return;
 		}
-		const regEx = /\d+/g;
+		if(!activeEditor.document.fileName.match(/\.js$/i)) {
+			return;
+		}
+		const isTest = activeEditor.document.fileName.match(/\.spec\.js$/i);
+		const regEx = /\b(?:if\(|class=)/g;
 		const text = activeEditor.document.getText();
-		const smallNumbers: vscode.DecorationOptions[] = [];
-		const largeNumbers: vscode.DecorationOptions[] = [];
+		const badStuffDecorations: vscode.DecorationOptions[] = [];
 		let match;
 		while (match = regEx.exec(text)) {
 			const startPos = activeEditor.document.positionAt(match.index);
 			const endPos = activeEditor.document.positionAt(match.index + match[0].length);
-			const decoration = { range: new vscode.Range(startPos, endPos), hoverMessage: 'Number **' + match[0] + '**' };
-			if (match[0].length < 3) {
-				smallNumbers.push(decoration);
-			} else {
-				largeNumbers.push(decoration);
+			let decoration;
+			if(isTest && match[0] == "if(") {
+				decoration = { range: new vscode.Range(startPos, endPos), hoverMessage: 'Did you mean "it("?' };
+			} else if(match[0] == "class=") {
+				decoration = { range: new vscode.Range(startPos, endPos), hoverMessage: 'If this is JSX, you mean "className="' };
+			}
+			if(decoration) {
+				badStuffDecorations.push(decoration);
 			}
 		}
-		activeEditor.setDecorations(smallNumberDecorationType, smallNumbers);
-		activeEditor.setDecorations(largeNumberDecorationType, largeNumbers);
+		activeEditor.setDecorations(badStuffDecorationType, badStuffDecorations);
 	}
 }
 

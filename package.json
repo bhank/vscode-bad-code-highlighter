@@ -1,8 +1,8 @@
 {
-	"name": "decorator-sample",
-	"description": "Sample for the decorator API",
+	"name": "bad-code-highlighter",
+	"description": "Test extension to highlight bad stuff",
 	"version": "0.0.1",
-	"publisher": "Microsoft",
+	"publisher": "bhank",
 	"license": "MIT",
 	"engines": {
 		"vscode": "0.10.x"
