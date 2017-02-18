@@ -31,4 +31,5 @@ To turn these bad bits of code red, you would configure the extension with the f
 
 ## Installation:
 
-Install it from the VS Code Marketplace; or put it in a directory under `%HOME%\.vscode\extensions` .
+In VS Code, hit Ctrl-P and type `ext install bad` to search for "bad" in the Marketplace; click on Bad Code Highlighter in the list, Install, and Reload.
+Or clone it from github, `npm compile` to build it, and copy/move/symlink it to a directory under `%HOME%\.vscode\extensions` .
