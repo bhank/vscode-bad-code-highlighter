@@ -2,7 +2,7 @@
     "name": "vscode-bad-code-highlighter",
     "displayName": "Bad Code Highlighter",
     "description": "Highlights text based on file type and content.",
-    "version": "0.1.0",
+    "version": "0.1.2",
     "publisher": "bhank",
     "license": "MIT",
     "repository": {
@@ -68,5 +68,8 @@
         "vscode": "^1.0.0",
         "typescript": "^2.1.4",
         "@types/node": "*"
+    },
+    "dependencies": {
+        "lodash": "^4.17.4"
     }
 }
