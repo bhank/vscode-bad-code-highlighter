@@ -19,6 +19,7 @@
         "*"
     ],
     "main": "./out/extension",
+    "icon": "icon.png",
     "contributes": {
         "configuration": {
             "type": "object",
