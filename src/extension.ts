@@ -91,9 +91,9 @@ export function activate(context: vscode.ExtensionContext) {
 			}
 		}
 
-		_.forEach(activeDecorationsByColor, (decorationOptions: vscode.DecorationOptions[], color: string) => {
-			activeEditor.setDecorations(decorationTypes[color], decorationOptions);
-		});
+		for(let color in decorationTypes) {
+			activeEditor.setDecorations(decorationTypes[color], activeDecorationsByColor[color] || []);
+		}
 	}
 }
 
