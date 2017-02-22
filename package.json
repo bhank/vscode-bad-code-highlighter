@@ -2,7 +2,7 @@
     "name": "vscode-bad-code-highlighter",
     "displayName": "Bad Code Highlighter",
     "description": "Adds colored highlights to text matching regular expressions.",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "publisher": "bhank",
     "license": "MIT",
     "repository": {
