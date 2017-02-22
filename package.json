@@ -67,7 +67,7 @@
                 "badCodeHighlighter.updateTimeout": {
                     "type": "integer",
                     "description": "Milliseconds to wait before updating highlights.",
-                    "default": 500
+                    "default": 250
                 }
             }
         }

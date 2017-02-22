@@ -19,7 +19,7 @@ let updateTimeout: number;
 function loadConfig() : void {
 	console.log('badCodeHighlighter loading config');
 	let config = vscode.workspace.getConfiguration('badCodeHighlighter');
-	updateTimeout = config.get<number>('updateTimeout', 500);
+	updateTimeout = config.get<number>('updateTimeout', 250);
 	highlights = config.get<Highlight[]>('highlights', []);
 	if(highlights && highlights.length > 0) {
 		let allDecoratorStyles : string[] = _.uniq(highlights.map(h => h.color));
